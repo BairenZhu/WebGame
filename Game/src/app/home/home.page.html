@@ -1,0 +1,50 @@
+
+<ion-content padding >
+
+<ion-list lines="full">
+
+  <ion-item class="head">
+  <h2 class="animated infinite bounce delay-2s">Let's have some fun ~ ~</h2>
+    <fa-icon icon="graduation-cap" [spin]="true" slot="end"></fa-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-button color="light" size="small" (click)="speak()">Listen The Rule</ion-button>
+    <fa-icon [icon]="faCoffee"  slot="end"></fa-icon>
+  </ion-item>
+
+</ion-list>
+
+  <div class="page">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="game">
+       <ion-row>Your Money:{{money}}$</ion-row>
+        <ion-row>your number:{{answer}}</ion-row>
+        <ion-row><ion-button size="small" collor="tertiary" (click)="giveup()">give up</ion-button></ion-row>
+        <ion-row><ion-button size="small" color="warning" (click)="reset()">Roll the number</ion-button></ion-row>
+
+        <ion-row *ngIf="ifstart">computer number:{{goal}}</ion-row>
+      </ion-col>
+      <ion-col class="animated lightSpeedIn delay-1s">
+        Click the Roll button to get your number.Number is between 1-100.Every bet is 10$
+        And your score will be recorded in the right bottom.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+  <ion-item>
+    <ion-button color="tertiary" (click)="start()">{{status}}</ion-button> <fa-icon icon="sync" [spin]="ifstart" slot="start"></fa-icon>
+    ----------You earn(<ion-badge color="success">{{win*10}}$</ion-badge>)dollars
+  </ion-item>
+
+<div class="winorlose" >
+  <h2 *ngIf=wintext class="animated zoomIn delay-1s">***Congratulation!You win***</h2>
+  <h2 *ngIf=losetext class="animated hinge delay-1s">Sorry..You Lose..try again</h2>
+</div>
+
+
+
+
+</ion-content>
